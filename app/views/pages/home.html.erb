@@ -1,2 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="home" class="jumbotron">
+	
+	<%= image_tag "http://s3.amazonaws.com/magasinsreunion/img/logo-magasinsreunion.png", alt: "Logo MagasinsReunion.re"%>
+	<h1>
+		Augmentez votre trafic en magasin à La Réunion. <br>
+		<%= link_to "S'inscrire gratuitement", "https://docs.google.com/forms/d/11NA8GXC6sJdcRDeTMnsm7fA0HT3oDKlxLJlFNWOKX_M/viewform", class: "btn btn-primary btn-lg" %>
+	</h1>
+	<div class="description clearfix">
+		<p>
+			Nous pensons qu’il est indispensable aujourd’hui, pour un magasin physique, d’être présent sur Internet. L’idée est de permettre aux Réunionnais de vous trouver rapidement en ligne et d’accéder à vos informations pratiques (adresse, téléphone, horaires d’ouverture et de fermeture et bien d’autres).
+		</p>
+		<div class="panel panel-default">
+			<div class="panel-heading">Vos avantages</div>
+			<div class="panel-body">
+				<ul>
+					<li><span class="glyphicon glyphicon-ok"></span>Agrandir sa zone de chalandise</li>
+					<li><span class="glyphicon glyphicon-ok"></span>Etre sur un site pour les commerçants se situant en ville</li>
+					<li><span class="glyphicon glyphicon-ok"></span>Toucher les Réunionnais qui recherchent en ligne</li>
+					<li><span class="glyphicon glyphicon-ok"></span>C'est gratuit !</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
