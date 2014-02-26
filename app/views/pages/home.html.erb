@@ -1,24 +1,199 @@
-<section id="home" class="jumbotron">
-	
-	<%= image_tag "http://s3.amazonaws.com/magasinsreunion/img/logo-magasinsreunion.png", alt: "Logo MagasinsReunion.re"%>
-	<h1>
-		Augmentez votre trafic en magasin à La Réunion. <br>
-		<%= link_to "S'inscrire gratuitement", "https://docs.google.com/forms/d/11NA8GXC6sJdcRDeTMnsm7fA0HT3oDKlxLJlFNWOKX_M/viewform", class: "btn btn-primary btn-lg" %>
-	</h1>
-	<div class="description clearfix">
-		<p>
-			Nous pensons qu’il est indispensable aujourd’hui, pour un magasin physique, d’être présent sur Internet. L’idée est de permettre aux Réunionnais de vous trouver rapidement en ligne et d’accéder à vos informations pratiques (adresse, téléphone, horaires d’ouverture et de fermeture et bien d’autres).
-		</p>
-		<div class="panel panel-default">
-			<div class="panel-heading">Vos avantages</div>
-			<div class="panel-body">
-				<ul>
-					<li><span class="glyphicon glyphicon-ok"></span>Agrandir sa zone de chalandise</li>
-					<li><span class="glyphicon glyphicon-ok"></span>Etre sur un site pour les commerçants se situant en ville</li>
-					<li><span class="glyphicon glyphicon-ok"></span>Toucher les Réunionnais qui recherchent en ligne</li>
-					<li><span class="glyphicon glyphicon-ok"></span>C'est gratuit !</li>
-				</ul>
+<div id="home">
+	<div id="map" class="map"></div>
+
+	<aside class="retails">
+
+		<section class="retail panel panel-default">
+			<div class="panel-body clearfix">
+				<div class="logo">
+					<div class="label label-success">Ouvert</div>
+					<img src="http://placehold.it/100x100">
+				</div>
+				<div class="information">
+					<h2>
+						La caze Collet
+					</h2>	
+					<p>
+						6 rue Robert <br>
+						97412 Bras-Panon
+					</p>
+					<p>
+						06 92 38 79 94
+					</p>
+				</div>
 			</div>
-		</div>
-	</div>
-</section>
+			<div class="panel-footer">
+				<span class="label label-default"><strong>Vêtement</strong></span>
+				<span class="label label-default"><strong>Sport</strong></span>
+			</div>
+		</section>
+
+		<section class="retail panel panel-default">
+			<div class="panel-body clearfix">
+				<div class="logo">
+					<div class="label label-success">Ouvert</div>
+					<img src="http://placehold.it/100x100">
+				</div>
+				<div class="information">
+					<h2>
+						La caze Collet
+					</h2>	
+					<p>
+						6 rue Robert <br>
+						97412 Bras-Panon
+					</p>
+					<p>
+						06 92 38 79 94
+					</p>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<span class="label label-default"><strong>Vêtement</strong></span>
+				<span class="label label-default"><strong>Sport</strong></span>
+			</div>
+		</section>
+
+		<section class="retail panel panel-default">
+			<div class="panel-body clearfix">
+				<div class="logo">
+					<div class="label label-success">Ouvert</div>
+					<img src="http://placehold.it/100x100">
+				</div>
+				<div class="information">
+					<h2>
+						La caze Collet
+					</h2>	
+					<p>
+						6 rue Robert <br>
+						97412 Bras-Panon
+					</p>
+					<p>
+						06 92 38 79 94
+					</p>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<span class="label label-default"><strong>Vêtement</strong></span>
+				<span class="label label-default"><strong>Sport</strong></span>
+			</div>
+		</section>
+
+		<section class="retail panel panel-default">
+			<div class="panel-body clearfix">
+				<div class="logo">
+					<div class="label label-success">Ouvert</div>
+					<img src="http://placehold.it/100x100">
+				</div>
+				<div class="information">
+					<h2>
+						La caze Collet
+					</h2>	
+					<p>
+						6 rue Robert <br>
+						97412 Bras-Panon
+					</p>
+					<p>
+						06 92 38 79 94
+					</p>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<span class="label label-default"><strong>Vêtement</strong></span>
+				<span class="label label-default"><strong>Sport</strong></span>
+			</div>
+		</section>
+
+		<section class="retail panel panel-default">
+			<div class="panel-body clearfix">
+				<div class="logo">
+					<div class="label label-success">Ouvert</div>
+					<img src="http://placehold.it/100x100">
+				</div>
+				<div class="information">
+					<h2>
+						La caze Collet
+					</h2>	
+					<p>
+						6 rue Robert <br>
+						97412 Bras-Panon
+					</p>
+					<p>
+						06 92 38 79 94
+					</p>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<span class="label label-default"><strong>Vêtement</strong></span>
+				<span class="label label-default"><strong>Sport</strong></span>
+			</div>
+		</section>
+
+	</aside>
+
+	<script>
+
+		var map = L.mapbox.map('map', 'julien-c.map-crig5ksu');
+
+		var geoJson = {
+		    type: 'FeatureCollection',
+		    features: [{
+		        type: 'Feature',
+			    geometry: {
+			        type: 'Point',
+			        coordinates : [55.6860532,-21.0005207]
+			    },
+			    properties: {
+			        description : "<strong>La caze Collet</strong>"+
+							"<br>"+
+							"6 rue Robert"+
+							"<br>"+
+							"97412 Bras-Panon",
+			        'marker-size': 'large',
+			        'marker-color': '#e74c3c'
+			    }
+		    },
+		    {
+		        type: 'Feature',
+			    geometry: {
+			        type: 'Point',
+			        coordinates : [55.4555071,-20.8795082]
+			    },
+			    properties: {
+			        description : "<strong>Magasin Cristal</strong>"+
+							"<br>"+
+							"199 r Mar Leclerc"+
+							"<br>"+
+							"97400 Saint-Denis",
+			        'marker-size': 'large',
+			        'marker-color': '#e74c3c'
+			    }
+		    }]
+		};
+
+		map.fitBounds([
+		    [-21.5, 56], 
+		    [-20.7, 55.7]
+		], {
+		    // this preserves the space from the left of the real map to 200px
+		    // for content. the format is [x, y]. See
+		    // http://leafletjs.com/reference.html#map-paddingtopleft
+		    // for full documentation and other options
+		    paddingTopLeft: [450, 0]
+		});
+
+		map.setZoom(10);
+
+		map.featureLayer.setGeoJSON(geoJson);
+
+	    map.scrollWheelZoom.disable();
+	    map.zoomControl.setPosition('topright');
+
+	    map.featureLayer.on('mouseover', function(e) {
+		    e.layer.openPopup();
+		});
+		map.featureLayer.on('mouseout', function(e) {
+		    e.layer.closePopup();
+		});
+
+	</script>
+</div>
