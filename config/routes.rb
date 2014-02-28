@@ -1,6 +1,8 @@
 Magasinsreunion::Application.routes.draw do
   
-  devise_for :users
+  resources :stores
+
+  devise_for :users, except: :new_user_registration
   root "pages#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
