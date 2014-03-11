@@ -5,11 +5,11 @@ class PagesController < ApplicationController
 	  	if params[:city] == "all" && params[:activity] == "all"
 	  		@stores = Store.all
 	  	elsif params[:city] == "all" && params[:activity] != "all"
-	  		@stores = Store.all.where('activity LIKE ?', '%'+params[:activity]+'%')
+	  		@stores = Store.all.where('activity ILIKE ?', '%'+params[:activity]+'%')
 	  	elsif params[:city] != "all" && params[:activity] == "all"
-	  		@stores = Store.all.where('town LIKE ?', '%'+params[:city]+'%')
+	  		@stores = Store.all.where('town ILIKE ?', '%'+params[:city]+'%')
 	  	else
-	  		@stores = Store.all.where('town LIKE ? AND activity LIKE ?', 
+	  		@stores = Store.all.where('town ILIKE ? AND activity ILIKE ?', 
 	  				'%'+params[:city]+'%', '%'+params[:activity]+'%')
 	  	end
 	else
@@ -26,12 +26,12 @@ class PagesController < ApplicationController
 	  	if params[:city] == "all" && params[:activity] == "all"
 	  		@stores = Store.all
 	  	elsif params[:city] == "all" && params[:activity] != "all"
-	  		@stores = Store.all.where('LOWER(activity) LIKE ?', '%LOWER('+params[:activity]+')%')
+	  		@stores = Store.all.where('activity ILIKE ?', '%'+params[:activity]+'%')
 	  	elsif params[:city] != "all" && params[:activity] == "all"
-	  		@stores = Store.all.where('LOWER(town) LIKE ?', '%LOWER('+params[:city]+')%')
+	  		@stores = Store.all.where('town ILIKE ?', '%'+params[:city]+'%')
 	  	else
-	  		@stores = Store.all.where('LOWER(town) LIKE ? AND LOWER(activity) LIKE ?', 
-	  				'%LOWER('+params[:city]+')%', '%LOWER('+params[:activity]+')%')
+	  		@stores = Store.all.where('town ILIKE ? AND activity ILIKE ?', 
+	  				'%'+params[:city]+'%', '%'+params[:activity]+'%')
 	  	end
 	else
 		@stores = Store.all
