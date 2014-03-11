@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /stores
   # GET /stores.json
@@ -28,7 +29,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
+        format.html { redirect_to @store, notice: 'La magasin a bien été inscrit.' }
         format.json { render action: 'show', status: :created, location: @store }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class StoresController < ApplicationController
   def update
     respond_to do |format|
       if @store.update(store_params)
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to @store, notice: 'Les informations ont bien été modifié.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

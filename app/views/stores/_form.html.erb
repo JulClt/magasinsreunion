@@ -11,39 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, "Nom du magasin" %><br>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <%= f.label :address, "Adresse" %><br>
+    <%= f.text_field :address, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :postcode %><br>
-    <%= f.text_field :postcode %>
+  <div class="form-group">
+    <%= f.label :postcode, "Code Postal" %><br>
+    <%= f.text_field :postcode, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :town %><br>
-    <%= f.text_field :town %>
+  <div class="form-group">
+    <%= f.label :town, "Ville" %><br>
+    <%= f.text_field :town, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :phonenumber %><br>
-    <%= f.text_field :phonenumber %>
+  <div class="form-group">
+    <%= f.label :phonenumber, "Téléphone" %><br>
+    <%= f.text_field :phonenumber, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, "Email" %><br>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :name_shopper %><br>
-    <%= f.text_field :name_shopper %>
+  <div class="form-group">
+    <%= f.label :name_shopper, "Nom du gérant" %><br>
+    <%= f.text_field :name_shopper, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :activity %><br>
-    <%= f.text_field :activity %>
+  <div class="form-group">
+    <%= f.label :activity, "Activité" %><br>
+    <%= f.text_field :activity, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class: "btn btn-primary btn-lg", value: "Inscrire le magasin" %>
   </div>
 <% end %>

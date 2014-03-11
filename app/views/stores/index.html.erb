@@ -1,19 +1,17 @@
-<h1>Listing stores</h1>
+<h1>Liste des magasins inscrits (<%= @stores.length %>)</h1>
 
-<table>
+<%= link_to 'Ajouter un magasin', new_store_path, class: "btn btn-primary" %>
+
+<table class="list-stores table table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Postcode</th>
-      <th>Town</th>
-      <th>Phonenumber</th>
+      <th>Nom du magasin</th>
+      <th width="10%">Ville</th>
+      <th width="10%">Téléphone</th>
       <th>Email</th>
-      <th>Name shopper</th>
-      <th>Activity</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Nom du gérant</th>
+      <th>Activité(s)</th>
+      <th width="17%">Actions</th>
     </tr>
   </thead>
 
@@ -21,21 +19,16 @@
     <% @stores.each do |store| %>
       <tr>
         <td><%= store.name %></td>
-        <td><%= store.address %></td>
-        <td><%= store.postcode %></td>
         <td><%= store.town %></td>
         <td><%= store.phonenumber %></td>
         <td><%= store.email %></td>
         <td><%= store.name_shopper %></td>
         <td><%= store.activity %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Voir', store %> -
+          <%= link_to 'Modifier', edit_store_path(store) %> -
+          <%= link_to 'Supprimer', store, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Store', new_store_path %>

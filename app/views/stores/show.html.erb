@@ -1,44 +1,52 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
+<div class="panel panel-default">
+  
+  <div class="panel-heading">
+    <h2>
+     <%= @store.name %>
+    </h2>
+  </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @store.address %>
-</p>
+  <div class="panel-body">
+    <p>
+      <strong>Adresse :</strong>
+      <%= @store.address %>
+    </p>
 
-<p>
-  <strong>Postcode:</strong>
-  <%= @store.postcode %>
-</p>
+    <p>
+      <strong>Code Postal :</strong>
+      <%= @store.postcode %>
+    </p>
 
-<p>
-  <strong>Town:</strong>
-  <%= @store.town %>
-</p>
+    <p>
+      <strong>Ville :</strong>
+      <%= @store.town %>
+    </p>
 
-<p>
-  <strong>Phonenumber:</strong>
-  <%= @store.phonenumber %>
-</p>
+    <p>
+      <strong>Téléphone :</strong>
+      <%= @store.phonenumber %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @store.email %>
-</p>
+    <p>
+      <strong>Email :</strong>
+      <%= @store.email %>
+    </p>
 
-<p>
-  <strong>Name shopper:</strong>
-  <%= @store.name_shopper %>
-</p>
+    <p>
+      <strong>Nom du gérant :</strong>
+      <%= @store.name_shopper %>
+    </p>
 
-<p>
-  <strong>Activity:</strong>
-  <%= @store.activity %>
-</p>
+    <p>
+      <strong>Activité :</strong>
+      <%= @store.activity %>
+    </p>
+  </div>
+  
+  <div class="panel-footer">
+    <%= link_to 'Modifier', edit_store_path(@store) %> |
+    <%= link_to 'Retour', stores_path %>
+  </div>
 
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+</div>

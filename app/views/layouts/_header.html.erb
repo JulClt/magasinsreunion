@@ -19,10 +19,17 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "Inscrire son magasin", "https://docs.google.com/forms/d/11NA8GXC6sJdcRDeTMnsm7fA0HT3oDKlxLJlFNWOKX_M/viewform" %>
+        <li class="subscription-link">
+          <%= link_to "https://docs.google.com/forms/d/11NA8GXC6sJdcRDeTMnsm7fA0HT3oDKlxLJlFNWOKX_M/viewform" do %>
+            
+            Inscrire son magasin <span class='label label-success'>gratuit</span>
+          
+          <% end %>
         </li>
-        <li><%= link_to "A propos", "#" %></li>
+        <li><%= link_to "A propos", about_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -38,63 +45,85 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form action="">
+      <%= form_tag root_path, method: "get" do %>
         <ul class="nav navbar-nav">
           <li>
             <div class="form-group">
               <label for="place">Lieu </label>
-              <select class="form-control" name="place" id="place">
-                <option value="saintBenoit">Saint-Benoît</option>
-                <option value="brasPanon">Bras-Panon</option>
-                <option value="saintAndre">Saint-André</option>
-                <option value="saintDenis">Saint-Denis</option>
-              </select>
+              <%= select_tag(:city, options_for_select([
+                  ["-", "all"], 
+                  ["Les Avirons", "les avirons"],
+                  ["Bras-Panon", "bras-panon"],
+                  ["Cilaos", "cilaos"],
+                  ["Entre-Deux", "entre-deux"],
+                  ["L'Etang-Salé", "etang-sale"],
+                  ["Petite-Ile", "petite-ile"],
+                  ["La Plaine-des-Palmistes", "plaine-des-palmistes"],
+                  ["Le Port", "port"],
+                  ["La Possession", "possession"],
+                  ["Saint-André", "saint-andre"],
+                  ["Saint-Benoît", "saint-benoit"],
+                  ["Saint-Denis", "saint-denis"],
+                  ["Sainte-Marie", "sainte-marie"],
+                  ["Sainte-Rose", "sainte-rose"],
+                  ["Sainte-Suzanne", "sainte-suzanne"],
+                  ["Saint-Joseph", "saint-joseph"],
+                  ["Saint-Leu", "saint-leu"],
+                  ["Saint-Louis", "saint-louis"],
+                  ["Saint-Paul", "saint-paul"],
+                  ["Saint-Philippe", "saint-philippe"],
+                  ["Saint-Pierre", "saint-pierre"],
+                  ["Salazie", "salazie"],
+                  ["Le Tampon", "tampon"],
+                  ["Trois-Bassins", "trois-bassins"]
+                ], "all"), class: "form-control") %>
             </div>
           </li>
           <li>
             <div class="form-group">
               <label for="activity">Activité </label>
-              <select class="form-control" name="activity" id="activity">
-                <option value="">Animaux</option>
-                <option value="">Antiquités</option>
-                <option value="">Art</option>
-                <option value="">Articles et Equipements de bureaux</option>
-                <option value="">Artisans</option>
-                <option value="">Auto</option>
-                <option value="">Bazar, droguerie, quincaillerie</option>
-                <option value="">Bijoux et Accessoires</option>
-                <option value="">Bricolage</option>
-                <option value="">Cadeaux</option>
-                <option value="">Caviste</option>
-                <option value="">Chaussures</option>
-                <option value="">Culture</option>
-                <option value="">Décoration</option>
-                <option value="">Diététique et Produits bio</option>
-                <option value="">Electro-ménager</option>
-                <option value="">Epicerie fine</option>
-                <option value="">Fleurs et Jardins</option>
-                <option value="">Hifi</option>
-                <option value="">Informatique et Multimédia</option>
-                <option value="">Jeux vidéo</option>
-                <option value="">Jouets</option>
-                <option value="">Meubles</option>
-                <option value="">Mode</option>
-                <option value="">Moto</option>
-                <option value="">Musique</option>
-                <option value="">Photo et Vidéo</option>
-                <option value="">Sport</option>
-                <option value="">Téléphonie</option>
-                <option value="">Tourisme</option>
-              </select>
+              <%= select_tag(:activity, options_for_select([
+                  ["Tout", "all"],
+                  ["Animaux", "animaux"],
+                  ["Antiquités", "antiquite"],
+                  ["Art", "art"],
+                  ["Articles et Equipements de bureaux", "bureaux"],
+                  ["Artisans", "artisans"],
+                  ["Auto", "auto"],
+                  ["Bazar, droguerie, quincaillerie", "bazar"],
+                  ["Bijoux et Accessoires", "bijoux"],
+                  ["Bricolage", "bricolage"],
+                  ["Cadeaux", "cadeaux"],
+                  ["Caviste", "caviste"],
+                  ["Chaussures", "chaussures"],
+                  ["Culture", "culture"],
+                  ["Décoration", "decoration"],
+                  ["Diététique et Produits bio", "dietetique"],
+                  ["Electro-ménager", "electro menager"],
+                  ["Epicerie fine", "epicerie"],
+                  ["Fleurs et Jardins", "fleurs"],
+                  ["Hifi", "hifi"],
+                  ["Informatique et Multimédia", "informatique"],
+                  ["Jeux vidéo", "jeux"],
+                  ["Jouets", "jouets"],
+                  ["Meubles", "meubles"],
+                  ["Mode", "mode"],
+                  ["Moto", "moto"],
+                  ["Musique", "musique"],
+                  ["Photo et Vidéo", "photo"],
+                  ["Sport", "sport"],
+                  ["Téléphonie", "telephonie"],
+                  ["Tourisme", "tourisme"]
+                ], "all"), class: "form-control") %>
             </div>
           </li>
           <li class="search-action">
-            <%= link_to "#" do %>
-              <span class="glyphicon glyphicon-search"></span> Lancer la recherche
+            <%= button_tag type: "submit" do%>
+                <span class="glyphicon glyphicon-search"></span> Lancer la recherche
             <% end %>
           </li>
         </ul>
-      </form>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

@@ -16,6 +16,7 @@ gem 'aws-sdk', "~> 1.33.0"
 gem "masonry-rails", "~> 0.2.1"
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap', "~> 1.0.0"
+gem "geocoder", "~> 1.1.9"
 
 group :development, :test do
 	gem 'sqlite3'

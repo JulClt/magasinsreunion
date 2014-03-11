@@ -1,5 +1,7 @@
 Magasinsreunion::Application.routes.draw do
   
+  get "listgeojson" => "pages#listgeojson"
+  get "about" => "pages#about"  
   resources :stores
 
   devise_for :users, except: :new_user_registration
