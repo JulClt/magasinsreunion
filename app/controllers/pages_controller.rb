@@ -3,17 +3,17 @@ class PagesController < ApplicationController
   	if params[:city].present? && params[:activity].present?
 
 	  	if params[:city] == "all" && params[:activity] == "all"
-	  		@stores = Store.all
+	  		@stores = Store.all.order('created_at DESC')
 	  	elsif params[:city] == "all" && params[:activity] != "all"
-	  		@stores = Store.all.where('activity ILIKE ?', '%'+params[:activity]+'%')
+	  		@stores = Store.all.order('created_at DESC').where('activity ILIKE ?', '%'+params[:activity]+'%')
 	  	elsif params[:city] != "all" && params[:activity] == "all"
-	  		@stores = Store.all.where('town ILIKE ?', '%'+params[:city]+'%')
+	  		@stores = Store.all.order('created_at DESC').where('town ILIKE ?', '%'+params[:city]+'%')
 	  	else
-	  		@stores = Store.all.where('town ILIKE ? AND activity ILIKE ?', 
+	  		@stores = Store.all.order('created_at DESC').where('town ILIKE ? AND activity ILIKE ?', 
 	  				'%'+params[:city]+'%', '%'+params[:activity]+'%')
 	  	end
 	else
-		@stores = Store.all
+		@stores = Store.all.order('created_at DESC')
 	end
   end
 
@@ -24,17 +24,17 @@ class PagesController < ApplicationController
   	if params[:city].present? && params[:activity].present?
 
 	  	if params[:city] == "all" && params[:activity] == "all"
-	  		@stores = Store.all
+	  		@stores = Store.all.order('created_at DESC')
 	  	elsif params[:city] == "all" && params[:activity] != "all"
-	  		@stores = Store.all.where('activity ILIKE ?', '%'+params[:activity]+'%')
+	  		@stores = Store.all.order('created_at DESC').where('activity ILIKE ?', '%'+params[:activity]+'%')
 	  	elsif params[:city] != "all" && params[:activity] == "all"
-	  		@stores = Store.all.where('town ILIKE ?', '%'+params[:city]+'%')
+	  		@stores = Store.all.order('created_at DESC').where('town ILIKE ?', '%'+params[:city]+'%')
 	  	else
-	  		@stores = Store.all.where('town ILIKE ? AND activity ILIKE ?', 
+	  		@stores = Store.all.order('created_at DESC').where('town ILIKE ? AND activity ILIKE ?', 
 	  				'%'+params[:city]+'%', '%'+params[:activity]+'%')
 	  	end
 	else
-		@stores = Store.all
+		@stores = Store.all.order('created_at DESC')
 	end
   	
   	@featureCollection = { 
