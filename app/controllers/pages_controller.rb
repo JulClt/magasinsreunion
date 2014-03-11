@@ -26,12 +26,12 @@ class PagesController < ApplicationController
 	  	if params[:city] == "all" && params[:activity] == "all"
 	  		@stores = Store.all
 	  	elsif params[:city] == "all" && params[:activity] != "all"
-	  		@stores = Store.all.where('activity LIKE ?', '%'+params[:activity]+'%')
+	  		@stores = Store.all.where('LOWER(activity) LIKE ?', '%LOWER('+params[:activity]+')%')
 	  	elsif params[:city] != "all" && params[:activity] == "all"
-	  		@stores = Store.all.where('town LIKE ?', '%'+params[:city]+'%')
+	  		@stores = Store.all.where('LOWER(town) LIKE ?', '%LOWER('+params[:city]+')%')
 	  	else
-	  		@stores = Store.all.where('town LIKE ? AND activity LIKE ?', 
-	  				'%'+params[:city]+'%', '%'+params[:activity]+'%')
+	  		@stores = Store.all.where('LOWER(town) LIKE ? AND LOWER(activity) LIKE ?', 
+	  				'%LOWER('+params[:city]+')%', '%LOWER('+params[:activity]+')%')
 	  	end
 	else
 		@stores = Store.all
@@ -51,7 +51,7 @@ class PagesController < ApplicationController
 	    	},
 	    	"properties" => {
 	      		"title" => store.name,
-	      		"description" => store.address+" "+store.postcode+" "+store.town,
+	      		"description" => "<p>"+store.address+" "+store.postcode+" "+store.town+"</p><p>"+store.activity+"</p>",
 	      		"marker-color" => "#e74c3c",
 	      		"marker-size" => "large"
 	    	}
