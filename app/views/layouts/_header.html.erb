@@ -44,14 +44,14 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
       <%= form_tag root_path, method: "get" do %>
         <ul class="nav navbar-nav">
           <li>
             <div class="form-group">
               <label for="place">Lieu </label>
               <%= select_tag(:city, options_for_select([
-                  ["-", "all"], 
+                  ["Sur toute l'île", "all"], 
                   ["Les Avirons", "les avirons"],
                   ["Bras-Panon", "bras-panon"],
                   ["Cilaos", "cilaos"],
@@ -83,7 +83,7 @@
             <div class="form-group">
               <label for="activity">Activité </label>
               <%= select_tag(:activity, options_for_select([
-                  ["Tout", "all"],
+                  ["Tout secteur d'activité", "all"],
                   ["Animaux", "animaux"],
                   ["Antiquités", "antiquite"],
                   ["Art", "art"],
@@ -117,9 +117,14 @@
                 ], "all"), class: "form-control") %>
             </div>
           </li>
-          <li class="search-action">
+          <li class="search-action search-action-text">
             <%= button_tag type: "submit" do%>
                 <span class="glyphicon glyphicon-search"></span> Lancer la recherche
+            <% end %>
+          </li>
+          <li class="search-action search-action-icon">
+            <%= button_tag type: "submit" do%>
+                <span class="glyphicon glyphicon-search"></span>
             <% end %>
           </li>
         </ul>

@@ -10,14 +10,23 @@ $brand-primary: 			  #e74c3c;
 
 @import "bootstrap";
 
+@media(max-width: 825px){
+	.wrap{width:100%; margin:0; padding:0;}
+	#about{padding: 15px;}
+}
 .navbar{
 	img{height:100%;}
 	margin-bottom: 0;
-
 	.nav-title{
 		font-size: 18px;
 		margin: 0;
 		line-height: 50px;
+	}
+	@media(max-width: 768px){
+		.nav-title{margin-left:15px;}
+	}
+	@media(max-width: 992px){
+		.nav-title{font-size: 11px;}
 	}
 }
 .navbar-primary{
@@ -32,6 +41,44 @@ $brand-primary: 			  #e74c3c;
 .searchbar{
 	background-color: #c0392b;
 	color: white;
+	.search-action-text{display: inline;}
+	.search-action-icon{display: none; 
+		span{margin-top: 12px; font-size: 21px; margin-right: 0;}
+	}
+	@media(max-width: 825px){
+		form{
+			ul{width:100%;}
+			li{
+				float: none;
+				.form-group{
+					padding: 0;
+					label{display: none;}
+					.form-control{width: 100%;}
+				}
+			}
+			.search-action-icon{
+				.glyphicon-search{font-size: 16px;}
+				.glyphicon-search:after{
+					content: " Rechercher";
+					text-transform: uppercase;
+					font-size: 16px;
+					letter-spacing: 1px;
+					font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				}	
+				button{width: 100%;}
+			}
+		} 
+	}
+	@media(max-width: 992px){
+		.container{width: auto;}
+	}
+	@media (max-width: 1200px){
+		.navbar-header{
+			display: none;
+		}
+		.search-action-text{display: none;}
+		.search-action-icon{display: inline;}
+	}
 	.navbar-brand{
 		color:white;
 		text-transform: uppercase;
@@ -102,7 +149,15 @@ footer{text-align: center; margin-top: 100px; margin-bottom: 5px;}
 		width: 450px;
 		background-color: rgba(0 ,0 ,0 , 0.15);
 	}
-
+	@media(max-width: 825px){
+		.map{display:none;}
+		.retails{
+			top:0px;
+			position: relative;
+			width:100%;
+			padding: 5px 20px;
+		}
+	}
 	.retail{
 		margin:10px 0;
 		border: 2px solid transparent;
@@ -128,12 +183,14 @@ footer{text-align: center; margin-top: 100px; margin-bottom: 5px;}
 	.retail:hover{
 			border: 2px solid #e74c3c;
 		}
+	.empty-stores{
+		color:white;
+		h3{letter-spacing: 1px;}
+		p{font-size: 16px;}
+	}
 }
+
+/* ABOUT PAGE */
 .about-content{
-	p{font-size: 16px;}
-}
-.empty-stores{
-	color:white;
-	h3{letter-spacing: 1px;}
 	p{font-size: 16px;}
 }
