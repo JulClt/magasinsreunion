@@ -48,6 +48,10 @@
     <%= f.text_field :activity, class: "form-control" %>
   </div>
   <div class="actions form-group">
+    <% if current_page?(action: "new")%>
     <%= f.submit class: "btn btn-primary btn-lg", value: "Inscrire le magasin" %>
+    <% else %>
+    <%= f.submit class: "btn btn-primary btn-lg", value: "Modifier les informations" %>
+    <% end %>
   </div>
 <% end %>
