@@ -9,6 +9,10 @@
 
   <div class="panel-body">
     <p>
+      <%= image_tag @store.logo.url(:medium) %>
+    </p>
+
+    <p>
       <strong>Adresse :</strong>
       <%= @store.address %>
     </p>
