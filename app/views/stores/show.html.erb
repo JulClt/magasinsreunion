@@ -32,15 +32,17 @@
       <%= @store.phonenumber %>
     </p>
 
-    <p>
-      <strong>Email :</strong>
-      <%= @store.email %>
-    </p>
+    <% if user_signed_in? %>
+      <p>
+        <strong>Email :</strong>
+        <%= @store.email %>
+      </p>
 
-    <p>
-      <strong>Nom du gérant :</strong>
-      <%= @store.name_shopper %>
-    </p>
+      <p>
+        <strong>Nom du gérant :</strong>
+        <%= @store.name_shopper %>
+      </p>
+    <% end %>
 
     <p>
       <strong>Activité :</strong>
@@ -48,9 +50,15 @@
     </p>
   </div>
   
-  <div class="panel-footer">
-    <%= link_to 'Modifier', edit_store_path(@store) %> |
-    <%= link_to 'Retour', stores_path %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="panel-footer">
+      <%= link_to 'Modifier', edit_store_path(@store) %> |
+      <%= link_to 'Retour', stores_path %>
+    </div>
+  <% else %>
+    <div class="panel-footer">
+      <%=link_to 'Retour', root_path %>
+    </div>
+  <% end %>
 
 </div>

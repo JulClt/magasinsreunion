@@ -7,6 +7,8 @@
 
 		<% @stores.each do |store| %>
 
+		<%= link_to store, class: "wrap-link" do %>
+
 		<section data-title="<%= store.name %>" class="retail panel panel-default">
 			<div class="panel-body clearfix">
 				<div class="logo">
@@ -24,6 +26,8 @@
 					<p>
 						<%= store.phonenumber %>
 					</p>
+					<p>
+					</p>
 				</div>
 			</div>
 			<div class="panel-footer">
@@ -36,6 +40,8 @@
 				<% end %>
 			</div>
 		</section>
+
+		<% end %>
 
 		<% end %>
 		<% else %>

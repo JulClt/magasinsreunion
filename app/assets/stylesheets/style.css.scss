@@ -159,6 +159,7 @@ footer{text-align: center; margin-top: 100px; margin-bottom: 5px;}
 		}
 	}
 	.retail{
+		color: rgb(51, 51, 51);
 		margin:10px 0;
 		border: 2px solid transparent;
 		-webkit-border-radius: 4px;
@@ -179,6 +180,9 @@ footer{text-align: center; margin-top: 100px; margin-bottom: 5px;}
 			text-transform: uppercase;
 			letter-spacing: 1px;
 		}
+	}
+	.wrap-link:hover{
+		text-decoration: none;
 	}
 	.retail:hover{
 			border: 2px solid #e74c3c;
