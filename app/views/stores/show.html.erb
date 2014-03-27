@@ -1,5 +1,5 @@
 
-<div class="panel panel-default">
+<div class="retail-show panel panel-default">
   
   <div class="panel-heading">
     <h2>
@@ -7,47 +7,39 @@
     </h2>
   </div>
 
-  <div class="panel-body">
-    <p>
-      <%= image_tag @store.logo.url(:medium) %>
-    </p>
-
-    <p>
-      <strong>Adresse :</strong>
-      <%= @store.address %>
-    </p>
-
-    <p>
-      <strong>Code Postal :</strong>
-      <%= @store.postcode %>
-    </p>
-
-    <p>
-      <strong>Ville :</strong>
-      <%= @store.town %>
-    </p>
-
-    <p>
-      <strong>Téléphone :</strong>
-      <%= @store.phonenumber %>
-    </p>
-
-    <% if user_signed_in? %>
+  <div class="panel-body clearfix">
+    <div class="logo pull-left">
       <p>
-        <strong>Email :</strong>
-        <%= @store.email %>
+        <%= image_tag @store.logo.url(:medium) %>
+      </p>
+    </div>
+    <div class="information pull-left">
+      <p class="address">
+        <%= @store.address+", "+@store.postcode+" "+@store.town %>
       </p>
 
       <p>
-        <strong>Nom du gérant :</strong>
-        <%= @store.name_shopper %>
+        <strong>Téléphone :</strong>
+        <%= @store.phonenumber %>
       </p>
-    <% end %>
 
-    <p>
-      <strong>Activité :</strong>
-      <%= @store.activity %>
-    </p>
+      <% if user_signed_in? %>
+        <p>
+          <strong>Email :</strong>
+          <%= @store.email %>
+        </p>
+
+        <p>
+          <strong>Nom du gérant :</strong>
+          <%= @store.name_shopper %>
+        </p>
+      <% end %>
+
+      <p>
+        <strong>Activité :</strong>
+        <%= @store.activity %>
+      </p>
+    </div>
   </div>
   
   <% if user_signed_in? %>

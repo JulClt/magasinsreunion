@@ -45,6 +45,7 @@ class PagesController < ApplicationController
   	@stores.each do |store|
   		@featureCollection["features"].push({
 	    	"type" => "Feature",
+	    	"debug" => store.address+" "+store.postcode+" "+store.town+" Réunion"
 	    	"geometry" => {
 	      		"type" => "Point",
 	      		"coordinates" => Geocoder.coordinates(store.address+" "+store.postcode+" "+store.town+" Réunion")

@@ -173,7 +173,9 @@ footer{text-align: center; margin-top: 100px; margin-bottom: 5px;}
 			float:left;
 			margin-right: 15px;
 			.label{display: block; margin-bottom: 2px;}}
-		.information{float: left;}
+		.information{
+			float: left;
+		}
 		h2{
 			margin-top: 0;
 			font-size: 17px;
@@ -191,6 +193,16 @@ footer{text-align: center; margin-top: 100px; margin-bottom: 5px;}
 		color:white;
 		h3{letter-spacing: 1px;}
 		p{font-size: 16px;}
+	}
+}
+.retail-show{
+	margin-top: 30px;
+	.logo{max-width: 28%; margin-right: 2%;}
+	.information{
+		min-width: 70%;
+		.address{
+			font-size: 18px;
+		}
 	}
 }
 
