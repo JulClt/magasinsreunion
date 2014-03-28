@@ -79,7 +79,9 @@
 		$.getJSON("/listgeojson.json" + window.location.search, function (data){
 			
 			for (var i = data.features.length - 1; i >= 0; i--) {
-				data.features[i].geometry.coordinates.reverse();
+				
+				if(data.features[i].geometry.coordinates !== null)
+					data.features[i].geometry.coordinates.reverse();
 
 			};
 
