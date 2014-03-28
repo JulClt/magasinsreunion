@@ -71,7 +71,12 @@
 		map.scrollWheelZoom.disable();
 		map.zoomControl.setPosition('topright');
 
-		$.getJSON("http://www.magasinsreunion.re/listgeojson.json"+window.location.search, function (data){
+		pathArray = window.location.href.split( '/' );
+		protocol = pathArray[0];
+		host = pathArray[2];
+		baseUrl = protocol + '://' + host;
+
+		$.getJSON("/listgeojson.json" + window.location.search, function (data){
 			
 			for (var i = data.features.length - 1; i >= 0; i--) {
 				data.features[i].geometry.coordinates.reverse();
